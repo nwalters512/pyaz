@@ -3,9 +3,34 @@
   "description": "A toolkit for JavaScript linting, building, and testing",
   "version": "1.0.0",
   "author": "Nathan Walters <nwalters512@gmail.com>",
+  "bin": {
+    "pyaz": "./bin/run"
+  },
   "bugs": {
     "url": "https://github.com/nwalters512/pyaz/issues"
   },
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/node": "^10",
+    "globby": "^10",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
   "homepage": "https://github.com/nwalters512/pyaz#readme",
   "keywords": [
     "JavaScript",
@@ -15,8 +40,19 @@
   ],
   "license": "MIT",
   "main": "index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "pyaz",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
   "repository": "github:nwalters512/pyaz",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
 }
