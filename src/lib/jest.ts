@@ -6,6 +6,7 @@ import { resolveInCwd } from './cwd';
 import { runBin } from './execute';
 import { makeJestConfig } from '../config/jest';
 import { formatFile } from './prettier';
+import chalk from 'chalk';
 
 export const ensureConfigFile = async () => {
   const jestConfigPath = resolveInCwd('jest.config.js');
@@ -21,6 +22,7 @@ export const ensureConfigFile = async () => {
   `;
   const formattedConfigFile = formatFile('jest.config.js', configFileContents);
   await fs.writeFile(jestConfigPath, formattedConfigFile);
+  console.log(chalk.dim('Wrote Jest config to jest.config.js'));
 };
 
 export const runJest = async (args: readonly string[]) => {
