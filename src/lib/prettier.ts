@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import path from 'path';
+import prettier from 'prettier';
 
 import { runBin } from './execute';
 import { resolveIgnoreFile } from './ignore';
@@ -18,6 +19,13 @@ interface RunPrettierOptions {
   check?: boolean;
   paths?: string[];
 }
+
+export const formatFile = (filepath: string, fileContents: string): string => {
+  return prettier.format(fileContents, {
+    filepath,
+    ...require(PRETTIER_CONFIG_PATH),
+  });
+};
 
 export const runPrettier = async ({
   fix = false,
