@@ -1,5 +1,5 @@
-node_modules/
-lib
+/node_modules/
+/lib
 
 # Misc error logs
 *-debug.log
