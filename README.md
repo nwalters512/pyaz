@@ -1,5 +1,4 @@
-pyaz
-====
+# pyaz
 
 A toolkit for JavaScript linting, building, and testing
 
@@ -9,11 +8,15 @@ A toolkit for JavaScript linting, building, and testing
 [![License](https://img.shields.io/npm/l/pyaz.svg)](https://github.com/github:nwalters512/pyaz/blob/master/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g pyaz
 $ pyaz COMMAND
@@ -25,11 +28,15 @@ USAGE
   $ pyaz COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`pyaz hello [FILE]`](#pyaz-hello-file)
-* [`pyaz help [COMMAND]`](#pyaz-help-command)
+
+- [`pyaz hello [FILE]`](#pyaz-hello-file)
+- [`pyaz help [COMMAND]`](#pyaz-help-command)
 
 ## `pyaz hello [FILE]`
 
@@ -63,4 +70,5 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
+
 <!-- commandsstop -->

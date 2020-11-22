@@ -1,1 +1,1 @@
-import { CLIEngine } from "eslint";
+import { CLIEngine } from 'eslint';
