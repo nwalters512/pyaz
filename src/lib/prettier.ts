@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import path from 'path';
 
 import { runBin } from './execute';
@@ -30,7 +31,7 @@ export const runPrettier = async ({
   if (fix) {
     args.push('--write');
   } else {
-    args.push('--check');
+    args.push('--list-different');
   }
 
   const ignoreFile = await resolveIgnoreFile('.prettierignore');
@@ -44,8 +45,24 @@ export const runPrettier = async ({
     await runBin({
       packageName: 'prettier',
       args,
+      options: {
+        stdio: 'inherit',
+      },
     });
   } catch (exitCode) {
-    console.error(exitCode);
+    if (exitCode === 2) {
+      console.log(chalk.yellow('No files matched the specified paths'));
+    } else {
+      // https://prettier.io/docs/en/cli.html#--check
+      if (!fix && exitCode === 1) {
+        console.error(
+          chalk.red('The above file(s) are not formatted correctly')
+        );
+      } else {
+        console.error(
+          chalk.red(`Prettier exited with exit code ${chalk.bold(exitCode)}`)
+        );
+      }
+    }
   }
 };

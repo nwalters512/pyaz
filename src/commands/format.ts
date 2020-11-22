@@ -12,8 +12,8 @@ export default class Format extends Command {
 
   async run() {
     const { argv } = this.parse(Format);
-    console.log(chalk.cyan('Formatting'));
+    console.log(chalk.blue('Formatting...'));
     await runPrettier({ fix: true, paths: argv });
-    console.log(chalk.cyan('Formatting completed'));
+    console.log(chalk.blue('Formatting completed'));
   }
 }
