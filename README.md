@@ -36,16 +36,16 @@ USAGE
 
 <!-- commands -->
 
-- [`pyaz format`](#pyaz-format)
+- [`pyaz format [FILE]`](#pyaz-format-file)
 - [`pyaz hello [FILE]`](#pyaz-hello-file)
 - [`pyaz help [COMMAND]`](#pyaz-help-command)
-- [`pyaz lint`](#pyaz-lint)
+- [`pyaz lint [FILE]`](#pyaz-lint-file)
 
-## `pyaz format`
+## `pyaz format [FILE]`
 
 ```
 USAGE
-  $ pyaz format
+  $ pyaz format [FILE]
 ```
 
 _See code: [src/commands/format.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/format.ts)_
@@ -83,11 +83,11 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
 
-## `pyaz lint`
+## `pyaz lint [FILE]`
 
 ```
 USAGE
-  $ pyaz lint
+  $ pyaz lint [FILE]
 ```
 
 _See code: [src/commands/lint.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/lint.ts)_
