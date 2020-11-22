@@ -22,7 +22,8 @@ export const runPrettier = async ({
   fix = false,
   paths: pathsOption = [],
 }: RunPrettierOptions) => {
-  const paths = pathsOption && pathsOption.length ? pathsOption : DEFAULT_PATHS;
+  const paths: string[] =
+    pathsOption && pathsOption.length ? pathsOption : [DEFAULT_PATHS];
 
   const args = ['--config', PRETTIER_CONFIG_PATH];
 
@@ -39,8 +40,12 @@ export const runPrettier = async ({
 
   args.push(...paths);
 
-  await runBin({
-    packageName: 'prettier',
-    args,
-  });
+  try {
+    await runBin({
+      packageName: 'prettier',
+      args,
+    });
+  } catch (exitCode) {
+    console.error(exitCode);
+  }
 };

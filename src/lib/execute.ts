@@ -1,6 +1,8 @@
 import path from 'path';
 import spawn from 'cross-spawn';
 import type { SpawnOptions } from 'child_process';
+import chalk from 'chalk';
+import { cwdWithTrailingSlash } from './cwd';
 
 // Inspired by https://github.com/seek-oss/sku/blob/master/lib/runBin.js
 
@@ -39,10 +41,25 @@ interface ExecuteBinOptions {
   options?: SpawnOptions;
 }
 
+export const logCommand = (
+  executableName: string,
+  args?: readonly string[]
+) => {
+  let logCommand = `$ ${executableName}`;
+  if (args && args.length > 0) {
+    logCommand += ` ${args.join(' ')}`;
+  }
+  logCommand = logCommand.split(cwdWithTrailingSlash()).join('');
+  console.log(chalk.dim(logCommand));
+};
+
 export const runBin = ({
   packageName,
   binName,
   args,
   options,
-}: ExecuteBinOptions) =>
-  spawnPromise(resolveBin(packageName, binName), args, options);
+}: ExecuteBinOptions) => {
+  const resolvedBin = resolveBin(packageName, binName);
+  logCommand(resolvedBin, args);
+  return spawnPromise(resolvedBin, args, options);
+};
