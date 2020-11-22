@@ -9,6 +9,7 @@ A toolkit for JavaScript linting, building, and testing
 
 <!-- toc -->
 
+- [pyaz](#pyaz)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
@@ -35,8 +36,19 @@ USAGE
 
 <!-- commands -->
 
+- [`pyaz format`](#pyaz-format)
 - [`pyaz hello [FILE]`](#pyaz-hello-file)
 - [`pyaz help [COMMAND]`](#pyaz-help-command)
+- [`pyaz lint`](#pyaz-lint)
+
+## `pyaz format`
+
+```
+USAGE
+  $ pyaz format
+```
+
+_See code: [src/commands/format.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/format.ts)_
 
 ## `pyaz hello [FILE]`
 
@@ -70,5 +82,14 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.0/src/commands/help.ts)_
+
+## `pyaz lint`
+
+```
+USAGE
+  $ pyaz lint
+```
+
+_See code: [src/commands/lint.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/lint.ts)_
 
 <!-- commandsstop -->

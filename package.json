@@ -57,8 +57,9 @@
   },
   "repository": "github:nwalters512/pyaz",
   "scripts": {
+    "generate:readme": "oclif-dev readme && ./bin/run format README.md",
     "postpack": "rm -f oclif.manifest.json",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && yarn generate:readme",
     "test": "echo NO TESTS",
     "version": "oclif-dev readme && git add README.md"
   },
