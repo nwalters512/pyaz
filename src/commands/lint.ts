@@ -1,5 +1,5 @@
 import { Command, flags } from '@oclif/command';
-import chalk = require('chalk');
+import chalk from 'chalk';
 import { runPrettier } from '../lib/prettier';
 
 export default class Lint extends Command {
