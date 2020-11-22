@@ -11,10 +11,5 @@ export const resolveIgnoreFile = async (
     }
   }
 
-  const defaultFilePath = resolveInCwd('.gitignore');
-  if (await fs.pathExists(defaultFilePath)) {
-    return defaultFilePath;
-  }
-
   return undefined;
 };
