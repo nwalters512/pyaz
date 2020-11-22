@@ -7,11 +7,22 @@ A toolkit for JavaScript linting, building, and testing
 [![Downloads/week](https://img.shields.io/npm/dw/pyaz.svg)](https://npmjs.org/package/pyaz)
 [![License](https://img.shields.io/npm/l/pyaz.svg)](https://github.com/github:nwalters512/pyaz/blob/master/package.json)
 
+## Inspirations
+
+- [sku](https://github.com/seek-oss/sku)
+- [tsdx](https://github.com/formium/tsdx)
+
 <!-- toc -->
 
 - [pyaz](#pyaz)
+  - [Inspirations](#inspirations)
 - [Usage](#usage)
 - [Commands](#commands)
+  - [`pyaz format [FILE]`](#pyaz-format-file)
+  - [`pyaz hello [FILE]`](#pyaz-hello-file)
+  - [`pyaz help [COMMAND]`](#pyaz-help-command)
+  - [`pyaz lint [FILE]`](#pyaz-lint-file)
+
 <!-- tocstop -->
 
 # Usage
