@@ -12,17 +12,14 @@ A toolkit for JavaScript linting, building, and testing
 - [sku](https://github.com/seek-oss/sku)
 - [tsdx](https://github.com/formium/tsdx)
 
+# Table of Contents
+
 <!-- toc -->
 
 - [pyaz](#pyaz)
-  - [Inspirations](#inspirations)
+- [Table of Contents](#table-of-contents)
 - [Usage](#usage)
 - [Commands](#commands)
-  - [`pyaz format [FILE]`](#pyaz-format-file)
-  - [`pyaz hello [FILE]`](#pyaz-hello-file)
-  - [`pyaz help [COMMAND]`](#pyaz-help-command)
-  - [`pyaz lint [FILE]`](#pyaz-lint-file)
-
 <!-- tocstop -->
 
 # Usage
@@ -51,6 +48,7 @@ USAGE
 - [`pyaz hello [FILE]`](#pyaz-hello-file)
 - [`pyaz help [COMMAND]`](#pyaz-help-command)
 - [`pyaz lint [FILE]`](#pyaz-lint-file)
+- [`pyaz test [FILE]`](#pyaz-test-file)
 
 ## `pyaz format [FILE]`
 
@@ -102,5 +100,14 @@ USAGE
 ```
 
 _See code: [src/commands/lint.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/lint.ts)_
+
+## `pyaz test [FILE]`
+
+```
+USAGE
+  $ pyaz test [FILE]
+```
+
+_See code: [src/commands/test.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/test.ts)_
 
 <!-- commandsstop -->
