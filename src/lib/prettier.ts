@@ -9,7 +9,7 @@ import { resolveInCwd } from './cwd';
 import { runBin } from './execute';
 import { resolveIgnoreFile } from './ignore';
 
-const DEFAULT_PATHS = '**/*.{js,ts,jsx,tsx,md,less,css}';
+const DEFAULT_PATHS = ['**/*.{js,ts,jsx,tsx,md,less,css}'];
 
 interface RunPrettierOptions {
   fix?: boolean;
@@ -45,8 +45,7 @@ export const runPrettier = async ({
   fix = false,
   paths: pathsOption = [],
 }: RunPrettierOptions) => {
-  const paths: string[] =
-    pathsOption && pathsOption.length ? pathsOption : [DEFAULT_PATHS];
+  const paths: string[] = pathsOption?.length ? pathsOption : DEFAULT_PATHS;
 
   await ensureConfigFile();
   const args = ['--config', prettierConfigPath];

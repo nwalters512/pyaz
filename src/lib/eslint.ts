@@ -3,8 +3,7 @@ import { CLIEngine, ESLint } from 'eslint';
 const DEFAULT_PATHS = ['.'];
 
 export const runEslint = async ({ fix = false, paths: pathsOption = [] }) => {
-  const paths: string[] =
-    pathsOption && pathsOption.length ? pathsOption : [DEFAULT_PATHS];
+  const paths: string[] = pathsOption?.length ? pathsOption : DEFAULT_PATHS;
 
   const eslint = new ESLint({ fix });
 
