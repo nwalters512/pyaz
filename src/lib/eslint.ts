@@ -1,11 +1,15 @@
 import { CLIEngine, ESLint } from 'eslint';
+import { makeEslintConfig } from '../config/eslint';
 
 const DEFAULT_PATHS = ['.'];
 
 export const runEslint = async ({ fix = false, paths: pathsOption = [] }) => {
   const paths: string[] = pathsOption?.length ? pathsOption : DEFAULT_PATHS;
 
-  const eslint = new ESLint({ fix });
+  const eslint = new ESLint({
+    fix,
+    baseConfig: makeEslintConfig(),
+  });
 
   const results = await eslint.lintFiles(paths);
 
