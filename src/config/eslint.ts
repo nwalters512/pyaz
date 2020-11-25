@@ -1,3 +1,3 @@
 export const makeEslintConfig = () => ({
-  extends: ['prettier'],
+  extends: ['eslint:recommended', 'prettier'],
 });
