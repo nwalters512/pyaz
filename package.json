@@ -22,6 +22,7 @@
     "chalk": "^4.1.0",
     "cross-spawn": "^7.0.3",
     "dedent": "^0.7.0",
+    "ensure-gitignore": "^1.1.2",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-react": "^7.21.5",
@@ -73,11 +74,12 @@
   "repository": "github:nwalters512/pyaz",
   "scripts": {
     "build": "rm -rf lib && tsc -b",
+    "format": "./bin/run format",
     "generate:readme": "oclif-dev readme && ./bin/run format README.md",
     "lint": "./bin/run lint",
-    "format": "./bin/run format",
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "yarn build && oclif-dev manifest && yarn generate:readme",
+    "setup": "./bin/run setup",
     "test": "./bin/run test",
     "version": "oclif-dev readme && git add README.md"
   },
