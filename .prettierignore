@@ -1,0 +1,5 @@
+# managed by pyaz
+/dist
+/lib
+/node_modules
+# end managed by pyaz

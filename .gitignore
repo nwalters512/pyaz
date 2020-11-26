@@ -1,6 +1,3 @@
-/node_modules/
-/lib
-
 # Misc error logs
 *-debug.log
 *-error.log
@@ -12,3 +9,9 @@ oclif.manifest.json
 # These files are maintained by pyaz.
 # They should not be edited manually or committed.
 jest.config.js
+
+# managed by pyaz
+/dist
+/lib
+/node_modules
+# end managed by pyaz
