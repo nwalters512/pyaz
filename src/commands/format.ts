@@ -1,5 +1,6 @@
 import { Command, flags } from '@oclif/command';
 import chalk from 'chalk';
+import { runEslint } from '../lib/eslint';
 import { runPrettier } from '../lib/prettier';
 
 export default class Format extends Command {
@@ -14,6 +15,7 @@ export default class Format extends Command {
     const { argv } = this.parse(Format);
     console.log(chalk.blue('Formatting...'));
     await runPrettier({ fix: true, paths: argv });
+    await runEslint({ fix: true, paths: argv });
     console.log(chalk.blue('Formatting completed'));
   }
 }

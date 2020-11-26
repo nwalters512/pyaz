@@ -25,10 +25,18 @@ export const runEslint = async ({
 
   if (fix) {
     await ESLint.outputFixes(results);
+  } else {
+    const hasResults = results.length > 0;
+    const hasErrors = ESLint.getErrorResults(results).length > 0;
+
+    if (hasResults) {
+      const formatter = await eslint.loadFormatter('stylish');
+      const resultText = formatter.format(results);
+      console.log(resultText);
+    }
+
+    if (hasErrors) {
+      // TODO: throw error
+    }
   }
-
-  const formatter = await eslint.loadFormatter('stylish');
-  const resultText = formatter.format(results);
-
-  console.log(resultText);
 };
