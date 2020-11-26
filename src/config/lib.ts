@@ -13,7 +13,7 @@ export interface EnsureConfigFileOptions {
 export const ensureJsConfigFile = async ({
   filepath,
   config,
-}: EnsureConfigFileOptions): Promise<void> => {
+}: EnsureConfigFileOptions): Promise<string> => {
   const configFilePath = resolveInCwd(filepath);
 
   const configFileContents = dedent`
@@ -27,4 +27,6 @@ export const ensureJsConfigFile = async ({
   const formattedConfigFile = formatFile(filepath, configFileContents);
   await fs.writeFile(configFilePath, formattedConfigFile);
   console.log(chalk.dim(`Wrote config to ${filepath}`));
+
+  return configFilePath;
 };

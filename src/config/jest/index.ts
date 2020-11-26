@@ -1,6 +1,7 @@
 import path from 'path';
 
 import { getCompiledFilePath } from '../../lib/files';
+import { ensureJsConfigFile } from '../lib';
 
 export const makeJestConfig = () => {
   return {
@@ -17,4 +18,11 @@ export const makeJestConfig = () => {
       ),
     },
   };
+};
+
+export const ensureJestConfig = async (): Promise<string> => {
+  return await ensureJsConfigFile({
+    filepath: 'jest.config.js',
+    config: makeJestConfig(),
+  });
 };
