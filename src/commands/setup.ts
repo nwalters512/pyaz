@@ -9,25 +9,25 @@ export default class Setup extends Command {
   async run() {
     console.log(chalk.blue('Setting things up...'));
 
+    const ignorePatterns = ['/lib', '/dist', '/node_modules'];
+
     // Write `.gitignore`
     await ensureGitignore({
-      patterns: [],
+      patterns: ignorePatterns,
       comment: 'managed by pyaz',
       filepath: resolveInCwd('.gitignore'),
     });
 
-    const lintingIgnorePatterns = ['/lib', '/dist', '/node_modules'];
-
     // Write `.eslintignore`
     await ensureGitignore({
-      patterns: lintingIgnorePatterns,
+      patterns: ignorePatterns,
       comment: 'managed by pyaz',
       filepath: resolveInCwd('.eslintignore'),
     });
 
     // Write `.prettierignore`
     await ensureGitignore({
-      patterns: lintingIgnorePatterns,
+      patterns: ignorePatterns,
       comment: 'managed by pyaz',
       filepath: resolveInCwd('.prettierignore'),
     });
