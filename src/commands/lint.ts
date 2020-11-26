@@ -1,4 +1,4 @@
-import { Command, flags } from '@oclif/command';
+import { Command } from '@oclif/command';
 import chalk from 'chalk';
 import { runPrettier } from '../lib/prettier';
 import { runEslint } from '../lib/eslint';

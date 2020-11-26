@@ -7,6 +7,8 @@ import { cwdWithTrailingSlash } from './cwd';
 // Inspired by https://github.com/seek-oss/sku/blob/master/lib/runBin.js
 
 const resolveBin = (packageName: string, binName?: string): string => {
+  // We specifically want to use Node's require(...) machinery here
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const packageJson = require(`${packageName}/package.json`);
   const binPath =
     typeof packageJson.bin === 'string'

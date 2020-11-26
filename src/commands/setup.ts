@@ -1,4 +1,4 @@
-import { Command, flags } from '@oclif/command';
+import { Command } from '@oclif/command';
 import chalk from 'chalk';
 import ensureGitignore from 'ensure-gitignore';
 import { resolveInCwd } from '../lib/cwd';

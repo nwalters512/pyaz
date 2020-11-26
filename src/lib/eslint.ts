@@ -1,4 +1,4 @@
-import { CLIEngine, ESLint } from 'eslint';
+import { ESLint } from 'eslint';
 import { ensureEslintConfig, makeEslintConfig } from '../config/eslint';
 
 const DEFAULT_PATHS = ['.'];
