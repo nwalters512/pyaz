@@ -45,7 +45,6 @@ USAGE
 <!-- commands -->
 
 - [`pyaz format [FILE]`](#pyaz-format-file)
-- [`pyaz hello [FILE]`](#pyaz-hello-file)
 - [`pyaz help [COMMAND]`](#pyaz-help-command)
 - [`pyaz lint [FILE]`](#pyaz-lint-file)
 - [`pyaz test [FILE]`](#pyaz-test-file)
@@ -58,24 +57,6 @@ USAGE
 ```
 
 _See code: [src/commands/format.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/format.ts)_
-
-## `pyaz hello [FILE]`
-
-```
-USAGE
-  $ pyaz hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ pyaz hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/hello.ts)_
 
 ## `pyaz help [COMMAND]`
 
