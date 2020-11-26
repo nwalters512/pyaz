@@ -1,10 +1,12 @@
 import { CLIEngine, ESLint } from 'eslint';
-import { makeEslintConfig } from '../config/eslint';
+import { ensureEslintConfig, makeEslintConfig } from '../config/eslint';
 
 const DEFAULT_PATHS = ['.'];
 
 export const runEslint = async ({ fix = false, paths: pathsOption = [] }) => {
   const paths: string[] = pathsOption?.length ? pathsOption : DEFAULT_PATHS;
+
+  await ensureEslintConfig();
 
   const eslint = new ESLint({
     fix,
