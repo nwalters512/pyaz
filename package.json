@@ -73,7 +73,7 @@
   },
   "repository": "github:nwalters512/pyaz",
   "scripts": {
-    "build": "rm -rf dist && tsc -b",
+    "build": "./bin/run build",
     "format": "./bin/run format",
     "generate:readme": "oclif-dev readme && ./bin/run format README.md",
     "lint": "./bin/run lint",
