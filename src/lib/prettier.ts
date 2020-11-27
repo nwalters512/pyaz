@@ -1,7 +1,11 @@
 import chalk from 'chalk';
 import prettier from 'prettier';
 
-import { ensurePrettierConfig, makePrettierConfig } from '../config/prettier';
+import {
+  ensurePrettierConfig,
+  makePrettierConfig,
+  PRETTIER_CONFIG_FILE_PATH,
+} from '../config/prettier';
 import { runBin } from './execute';
 import { resolveIgnoreFile } from './ignore';
 
@@ -26,8 +30,8 @@ export const runPrettier = async ({
 }: RunPrettierOptions) => {
   const paths: string[] = pathsOption?.length ? pathsOption : DEFAULT_PATHS;
 
-  const prettierConfigPath = await ensurePrettierConfig();
-  const args = ['--config', prettierConfigPath];
+  await ensurePrettierConfig();
+  const args = ['--config', PRETTIER_CONFIG_FILE_PATH];
 
   if (fix) {
     args.push('--write');

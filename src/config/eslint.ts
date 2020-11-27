@@ -3,6 +3,8 @@ import { ensureJsConfigFile } from './lib';
 
 const OFF = 'off';
 
+export const ESLINT_CONFIG_FILE_PATH = '.eslintrc.js';
+
 export const makeEslintConfig = (): Linter.Config => ({
   extends: [
     'eslint:recommended',
@@ -33,7 +35,7 @@ export const makeEslintConfig = (): Linter.Config => ({
 
 export const ensureEslintConfig = async () => {
   await ensureJsConfigFile({
-    filepath: '.eslintrc.js',
+    filepath: ESLINT_CONFIG_FILE_PATH,
     config: makeEslintConfig(),
   });
 };
