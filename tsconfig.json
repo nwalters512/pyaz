@@ -1,13 +1,19 @@
+/** This file is managed by pyaz. Changes will be discarded. */
+
 {
   "compilerOptions": {
-    "esModuleInterop": true,
     "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "importHelpers": true,
     "module": "commonjs",
     "outDir": "dist",
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
     "rootDir": "src",
     "strict": true,
-    "target": "es2017"
+    "target": "ES2017"
   },
-  "include": ["src/**/*"]
+  "include": ["src/"],
+  "exclude": ["node_modules/"]
 }

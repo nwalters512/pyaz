@@ -7,6 +7,10 @@ import {
   ensurePrettierConfig,
   PRETTIER_CONFIG_FILE_PATH,
 } from '../config/prettier';
+import {
+  ensureTypescriptConfig,
+  TYPESCRIPT_CONFIG_FILE_PATH,
+} from '../config/typescript';
 import { resolveInCwd } from '../lib/cwd';
 
 export default class Setup extends Command {
@@ -17,6 +21,10 @@ export default class Setup extends Command {
 
     const lintIgnorePatterns = ['/lib', '/dist', '/node_modules'];
     const gitIgnorePatterns = [...lintIgnorePatterns];
+
+    // Write TypeScript config
+    await ensureTypescriptConfig();
+    gitIgnorePatterns.push(TYPESCRIPT_CONFIG_FILE_PATH);
 
     // Write ESLint config
     await ensureEslintConfig();

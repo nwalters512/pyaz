@@ -20,8 +20,8 @@ export const makeTypescriptConfig = () => {
       strict: true,
       target: 'ES2017',
     },
-    include: [resolveInCwd('src')],
-    exclude: [],
+    include: ['src/'],
+    exclude: ['node_modules/'],
   };
 };
 
