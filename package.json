@@ -51,7 +51,7 @@
   },
   "files": [
     "/bin",
-    "/lib",
+    "/dist",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
@@ -65,7 +65,7 @@
   "license": "MIT",
   "main": "index.js",
   "oclif": {
-    "commands": "./lib/commands",
+    "commands": "./dist/commands",
     "bin": "pyaz",
     "plugins": [
       "@oclif/plugin-help"
@@ -73,7 +73,7 @@
   },
   "repository": "github:nwalters512/pyaz",
   "scripts": {
-    "build": "rm -rf lib && tsc -b",
+    "build": "rm -rf dist && tsc -b",
     "format": "./bin/run format",
     "generate:readme": "oclif-dev readme && ./bin/run format README.md",
     "lint": "./bin/run lint",
@@ -83,5 +83,5 @@
     "test": "./bin/run test",
     "version": "oclif-dev readme && git add README.md"
   },
-  "types": "lib/index.d.ts"
+  "types": "dist/index.d.ts"
 }

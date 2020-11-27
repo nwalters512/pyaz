@@ -4,8 +4,8 @@ import { ensureEslintConfig, makeEslintConfig } from '../config/eslint';
 const DEFAULT_PATHS = ['.'];
 
 interface RunEslintOptions {
-  fix: boolean;
-  paths: string[];
+  fix?: boolean;
+  paths?: string[];
 }
 
 export const runEslint = async ({
