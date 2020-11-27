@@ -63,5 +63,5 @@ export const runBin = ({
 }: ExecuteBinOptions) => {
   const resolvedBin = resolveBin(packageName, binName);
   logCommand(resolvedBin, args);
-  return spawnPromise(resolvedBin, args, options);
+  return spawnPromise(resolvedBin, args, { stdio: 'inherit', ...options });
 };
