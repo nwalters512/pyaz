@@ -1,6 +1,3 @@
-import fs from 'fs-extra';
-import dedent from 'dedent';
-
 import { runBin } from './execute';
 import { ensureJestConfig } from '../config/jest';
 
