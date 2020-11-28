@@ -44,10 +44,21 @@ USAGE
 
 <!-- commands -->
 
+- [`pyaz build`](#pyaz-build)
 - [`pyaz format [FILE]`](#pyaz-format-file)
 - [`pyaz help [COMMAND]`](#pyaz-help-command)
 - [`pyaz lint [FILE]`](#pyaz-lint-file)
+- [`pyaz setup`](#pyaz-setup)
 - [`pyaz test [FILE]`](#pyaz-test-file)
+
+## `pyaz build`
+
+```
+USAGE
+  $ pyaz build
+```
+
+_See code: [dist/commands/build.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/dist/commands/build.ts)_
 
 ## `pyaz format [FILE]`
 
@@ -56,7 +67,7 @@ USAGE
   $ pyaz format [FILE]
 ```
 
-_See code: [src/commands/format.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/format.ts)_
+_See code: [dist/commands/format.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/dist/commands/format.ts)_
 
 ## `pyaz help [COMMAND]`
 
@@ -80,7 +91,16 @@ USAGE
   $ pyaz lint [FILE]
 ```
 
-_See code: [src/commands/lint.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/lint.ts)_
+_See code: [dist/commands/lint.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/dist/commands/lint.ts)_
+
+## `pyaz setup`
+
+```
+USAGE
+  $ pyaz setup
+```
+
+_See code: [dist/commands/setup.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/dist/commands/setup.ts)_
 
 ## `pyaz test [FILE]`
 
@@ -89,6 +109,6 @@ USAGE
   $ pyaz test [FILE]
 ```
 
-_See code: [src/commands/test.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/src/commands/test.ts)_
+_See code: [dist/commands/test.ts](https://github.com/nwalters512/pyaz/blob/v1.0.0/dist/commands/test.ts)_
 
 <!-- commandsstop -->

@@ -1,5 +1,3 @@
-import { resolveInCwd } from '../lib/cwd';
-
 import { ensureJsonConfigFile } from './lib';
 export const TYPESCRIPT_CONFIG_FILE_PATH = 'tsconfig.json';
 
