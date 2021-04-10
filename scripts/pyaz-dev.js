@@ -4,6 +4,7 @@ const esbuild = require('esbuild');
 const fs = require('fs-extra');
 const path = require('path');
 const glob = require('globby');
+const child = require('child_process');
 
 const SRC_FOLDER = path.resolve(__dirname, '..', 'src');
 const DEV_BUILD_FOLDER = path.resolve(__dirname, '..', 'pyaz-dev');
@@ -16,12 +17,26 @@ async function build() {
 
   await esbuild.build({
     entryPoints: files,
+    format: 'cjs',
     outdir: DEV_BUILD_FOLDER,
   });
 }
 
 async function execDev() {
-  console.log('hello!');
+  const args = [
+    path.join(DEV_BUILD_FOLDER, 'index.js'),
+    ...process.argv.slice(2),
+  ];
+  const res = child.spawnSync(
+    process.execPath,
+    [...process.execArgv, ...args],
+    {
+      stdio: 'inherit',
+    }
+  );
+  if (res.status !== 0) {
+    process.exit(1);
+  }
 }
 
 async function main() {

@@ -8,3 +8,5 @@ program
   .command('lint')
   .description('Check code for formatting errors and best practices')
   .action(lint);
+
+program.parse(process.argv);
