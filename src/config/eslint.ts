@@ -1,4 +1,6 @@
 import type { Linter } from 'eslint';
+import path from 'path';
+
 import { ensureJsConfigFile } from './lib';
 
 const OFF = 'off';
@@ -34,8 +36,16 @@ export const makeEslintConfig = (): Linter.Config => ({
 });
 
 export const ensureEslintConfig = async () => {
+  const eslintPatchPath = require.resolve(
+    '@rushstack/eslint-patch/modern-module-resolution',
+    {
+      paths: [path.resolve(__dirname, '..', '..')],
+    }
+  );
   await ensureJsConfigFile({
     filepath: ESLINT_CONFIG_FILE_PATH,
+    // Enables https://github.com/microsoft/rushstack/tree/master/stack/eslint-patch
+    preamble: `require('${eslintPatchPath}');`,
     config: makeEslintConfig(),
   });
 };
