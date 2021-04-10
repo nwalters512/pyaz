@@ -24,7 +24,7 @@ async function build() {
 
 async function execDev() {
   const args = [
-    path.join(DEV_BUILD_FOLDER, 'index.js'),
+    path.join(DEV_BUILD_FOLDER, 'cli.js'),
     ...process.argv.slice(2),
   ];
   const res = child.spawnSync(

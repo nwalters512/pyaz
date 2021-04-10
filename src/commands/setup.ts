@@ -7,6 +7,7 @@ import {
   ensurePrettierConfig,
   PRETTIER_CONFIG_FILE_PATH,
 } from '../config/prettier';
+import { loadPyazConfig } from '../config/pyaz';
 import {
   ensureTypescriptConfig,
   TYPESCRIPT_CONFIG_FILE_PATH,
@@ -16,7 +17,14 @@ import { resolveInCwd } from '../lib/cwd';
 export default async () => {
   console.log(chalk.blue('Setting things up...'));
 
-  const lintIgnorePatterns = ['/lib', '/dist', '/node_modules'];
+  const config = await loadPyazConfig();
+
+  const lintIgnorePatterns = [
+    '/lib',
+    '/dist',
+    '/node_modules',
+    ...(config.ignore || []),
+  ];
   const gitIgnorePatterns = [...lintIgnorePatterns];
 
   // Write TypeScript config

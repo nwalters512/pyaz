@@ -2,7 +2,6 @@
 *-debug.log
 *-error.log
 
-/pyaz-dev
 
 # These files are maintained by pyaz.
 # They should not be edited manually or committed.
@@ -13,6 +12,7 @@
 /dist
 /lib
 /node_modules
+/pyaz-dev
 jest.config.js
 tsconfig.json
 # end managed by pyaz
