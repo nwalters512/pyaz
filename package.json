@@ -12,9 +12,6 @@
   "dependencies": {
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
-    "@oclif/command": "^1",
-    "@oclif/config": "^1",
-    "@oclif/plugin-help": "^3",
     "@rushstack/eslint-patch": "^1.0.6",
     "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
@@ -35,7 +32,6 @@
     "tslib": "^1"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "^1",
     "@types/cross-spawn": "^6.0.2",
     "@types/dedent": "^0.7.0",
     "@types/eslint": "^7.2.5",
@@ -49,14 +45,9 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "engines": {
-    "node": ">=8.0.0"
-  },
   "files": [
     "/bin",
-    "/dist",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
+    "/dist"
   ],
   "homepage": "https://github.com/nwalters512/pyaz#readme",
   "keywords": [
@@ -66,25 +57,12 @@
     "test"
   ],
   "license": "MIT",
-  "main": "index.js",
-  "oclif": {
-    "commands": "./dist/commands",
-    "bin": "pyaz",
-    "plugins": [
-      "@oclif/plugin-help"
-    ]
-  },
   "repository": "github:nwalters512/pyaz",
   "scripts": {
-    "build": "./bin/run build",
-    "format": "./bin/run format",
-    "generate:readme": "oclif-dev readme && ./bin/run format README.md",
-    "lint": "./bin/run lint",
-    "postpack": "rm -f oclif.manifest.json",
-    "prepack": "yarn build && oclif-dev manifest && yarn generate:readme",
-    "setup": "./bin/run setup",
-    "test": "./bin/run test",
-    "version": "oclif-dev readme && git add README.md"
-  },
-  "types": "dist/index.d.ts"
+    "build": "./pyaz build",
+    "format": "./pyaz format",
+    "lint": "./pyaz lint",
+    "setup": "./pyaz setup",
+    "test": "./pyaz test"
+  }
 }

@@ -2,10 +2,6 @@
 *-debug.log
 *-error.log
 
-# Generated before npm packaging occurs and deleted immediately after
-# On the offchance it isn't deleted, don't commit it
-oclif.manifest.json
-
 /pyaz-dev
 
 # These files are maintained by pyaz.
