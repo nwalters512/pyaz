@@ -12,7 +12,13 @@ export const hasPyazConfig = async () => {
   return fs.pathExists(PYAZ_CONFIG_FILE_PATH);
 };
 
+let cachedConfig: PyazConfig | null = null;
+
 export const loadPyazConfig = async (): Promise<PyazConfig> => {
+  if (cachedConfig) {
+    return cachedConfig;
+  }
+
   const cwdPath = resolveInCwd(PYAZ_CONFIG_FILE_PATH);
   if (!(await fs.pathExists(cwdPath))) {
     // No user-provided config exists; we're running in zero-config mode.
@@ -29,6 +35,6 @@ export const loadPyazConfig = async (): Promise<PyazConfig> => {
   service.enabled(false);
 
   // Handle the case where this is transformed to have a `default` property
-  if (pyazConfig.default) return pyazConfig.default;
-  return pyazConfig;
+  cachedConfig = pyazConfig.default || pyazConfig;
+  return cachedConfig as PyazConfig;
 };

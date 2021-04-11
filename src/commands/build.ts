@@ -1,8 +1,9 @@
 import chalk from 'chalk';
 import fs from 'fs-extra';
 
+import { TYPESCRIPT_BUILD_CONFIG_FILE_PATH } from '../config/typescript';
 import { resolveInCwd } from '../lib/cwd';
-import { runTypescript } from '../lib/typescript';
+import { runTypeScript } from '../lib/typescript';
 
 export default async () => {
   console.log(chalk.blue('Building...'));
@@ -11,7 +12,7 @@ export default async () => {
   await fs.remove(resolveInCwd('dist'));
 
   // Compile files with TypeScript
-  await runTypescript();
+  await runTypeScript({ configPath: TYPESCRIPT_BUILD_CONFIG_FILE_PATH });
 
   console.log(chalk.blue('Building completed'));
 };

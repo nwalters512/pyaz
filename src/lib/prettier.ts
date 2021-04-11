@@ -13,7 +13,6 @@ const DEFAULT_PATHS = ['**/*.{js,ts,jsx,tsx,md,less,css}'];
 
 interface RunPrettierOptions {
   fix?: boolean;
-  check?: boolean;
   paths?: string[];
 }
 
@@ -27,7 +26,7 @@ export const formatFile = (filepath: string, fileContents: string): string => {
 export const runPrettier = async ({
   fix = false,
   paths: pathsOption = [],
-}: RunPrettierOptions) => {
+}: RunPrettierOptions = {}) => {
   const paths: string[] = pathsOption?.length ? pathsOption : DEFAULT_PATHS;
 
   await ensurePrettierConfig();

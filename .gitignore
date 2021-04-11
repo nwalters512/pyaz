@@ -9,10 +9,14 @@
 # managed by pyaz
 .eslintrc.js
 .prettierrc.js
+/.eslintrc.js
+/.prettierrc.js
 /dist
+/jest.config.js
 /lib
 /node_modules
 /pyaz-dev
 jest.config.js
+tsconfig.build.json
 tsconfig.json
 # end managed by pyaz

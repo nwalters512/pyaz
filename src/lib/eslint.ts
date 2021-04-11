@@ -11,7 +11,7 @@ interface RunEslintOptions {
 export const runEslint = async ({
   fix = false,
   paths: pathsOption = [],
-}: RunEslintOptions) => {
+}: RunEslintOptions = {}) => {
   const paths: string[] = pathsOption?.length ? pathsOption : DEFAULT_PATHS;
 
   await ensureEslintConfig();

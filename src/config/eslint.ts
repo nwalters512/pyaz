@@ -1,9 +1,12 @@
 import type { Linter } from 'eslint';
 import path from 'path';
+import { resolveInCwd } from '../lib/cwd';
 
 import { ensureJsConfigFile } from './lib';
+import { TYPESCRIPT_CONFIG_FILE_PATH } from './typescript';
 
 const OFF = 'off';
+const ERROR = 'error';
 
 export const ESLINT_CONFIG_FILE_PATH = '.eslintrc.js';
 
@@ -28,10 +31,12 @@ export const makeEslintConfig = (): Linter.Config => ({
     },
     ecmaVersion: 2020,
     sourceType: 'module',
+    project: resolveInCwd(TYPESCRIPT_CONFIG_FILE_PATH),
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': OFF,
+    '@typescript-eslint/await-thenable': ERROR,
   },
 });
 

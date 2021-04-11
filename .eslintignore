@@ -1,5 +1,8 @@
 # managed by pyaz
+/.eslintrc.js
+/.prettierrc.js
 /dist
+/jest.config.js
 /lib
 /node_modules
 /pyaz-dev

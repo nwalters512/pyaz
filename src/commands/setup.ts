@@ -9,10 +9,11 @@ import {
 } from '../config/prettier';
 import { loadPyazConfig } from '../config/pyaz';
 import {
-  ensureTypescriptConfig,
+  ensureTypeScriptConfig,
+  TYPESCRIPT_BUILD_CONFIG_FILE_PATH,
   TYPESCRIPT_CONFIG_FILE_PATH,
 } from '../config/typescript';
-import { resolveInCwd } from '../lib/cwd';
+import { resolveInCwd, resolveInCwdWithLeadingSlash } from '../lib/cwd';
 
 export default async () => {
   console.log(chalk.blue('Setting things up...'));
@@ -23,17 +24,32 @@ export default async () => {
     '/lib',
     '/dist',
     '/node_modules',
+    resolveInCwdWithLeadingSlash(ESLINT_CONFIG_FILE_PATH),
+    resolveInCwdWithLeadingSlash(JEST_CONFIG_FILE_PATH),
+    resolveInCwdWithLeadingSlash(PRETTIER_CONFIG_FILE_PATH),
     ...(config.ignore || []),
   ];
-  const gitIgnorePatterns = [...lintIgnorePatterns];
+  const gitIgnorePatterns = [
+    ...lintIgnorePatterns,
+    ESLINT_CONFIG_FILE_PATH,
+    JEST_CONFIG_FILE_PATH,
+    PRETTIER_CONFIG_FILE_PATH,
+    TYPESCRIPT_BUILD_CONFIG_FILE_PATH,
+    TYPESCRIPT_CONFIG_FILE_PATH,
+  ];
+
+  // Write `.gitignore`
+  await ensureGitignore({
+    patterns: gitIgnorePatterns,
+    comment: 'managed by pyaz',
+    filepath: resolveInCwd('.gitignore'),
+  });
 
   // Write TypeScript config
-  await ensureTypescriptConfig();
-  gitIgnorePatterns.push(TYPESCRIPT_CONFIG_FILE_PATH);
+  await ensureTypeScriptConfig();
 
   // Write ESLint config
   await ensureEslintConfig();
-  gitIgnorePatterns.push(ESLINT_CONFIG_FILE_PATH);
 
   // Write `.eslintignore`
   await ensureGitignore({
@@ -44,7 +60,6 @@ export default async () => {
 
   // Write Prettier config
   await ensurePrettierConfig();
-  gitIgnorePatterns.push(PRETTIER_CONFIG_FILE_PATH);
 
   // Write `.prettierignore`
   await ensureGitignore({
@@ -53,16 +68,8 @@ export default async () => {
     filepath: resolveInCwd('.prettierignore'),
   });
 
-  // Generate Jest config
+  // Write Jest config
   await ensureJestConfig();
-  gitIgnorePatterns.push(JEST_CONFIG_FILE_PATH);
-
-  // Write `.gitignore`
-  await ensureGitignore({
-    patterns: gitIgnorePatterns,
-    comment: 'managed by pyaz',
-    filepath: resolveInCwd('.gitignore'),
-  });
 
   console.log(chalk.blue('Setup completed'));
 };

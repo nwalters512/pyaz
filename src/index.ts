@@ -1,1 +1,1 @@
-export { PyazConfig } from './config/pyaz';
+export type { PyazConfig } from './config/pyaz';
