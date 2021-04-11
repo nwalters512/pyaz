@@ -50,6 +50,7 @@ export const makeTypeScriptBuildConfig = async () => {
   return {
     compilerOptions: {
       ...makeBaseCompilerOptions(),
+      declaration: true,
       emitDeclarationOnly: true,
       rootDir: 'src',
       outDir: 'dist',
